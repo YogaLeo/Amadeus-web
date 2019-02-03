@@ -5,7 +5,7 @@ export class Main extends React.Component {
     // under the topbar
     render() {
         return (
-            <div>
+            <div className='main'>
                 <Register/>
             </div>
         );
