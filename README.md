@@ -1,1 +1,1 @@
-Frontend of Project Amadeus
+Frontend of Project Amadeus (still developing)
