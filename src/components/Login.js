@@ -1,5 +1,5 @@
 import React from 'react';
-import {API_ROOT} from "../constants";
+import { API_ROOT } from "../constants";
 import { Link } from 'react-router-dom';
 
 import {
@@ -28,7 +28,8 @@ class NormalLoginForm extends React.Component {
                 }).then((data) => {
                     console.log(data);
                     message.success("Login Success!");
-                }).catch((e) => {
+                    this.props.handleSuccessfulLogin(data);
+            }).catch((e) => {
                     console.log(e);
                     message.error("Login Failed.");
                 });
