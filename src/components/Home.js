@@ -1,8 +1,8 @@
-
 import React from 'react';
-import { Tabs, Button, Spin } from 'antd';
+import { Tabs, Spin } from 'antd';
 import { GEO_OPTIONS, POS_KEY, API_ROOT, AUTH_HEADER, TOKEN_KEY } from '../constants';
 import { Gallery } from './Gallery';
+import { CreatePostButton } from './CreatePostButton';
 
 const TabPane = Tabs.TabPane;
 
@@ -42,7 +42,7 @@ export class Home extends React.Component {
         const { lat, lon } = JSON.parse(localStorage.getItem(POS_KEY));
         const token = localStorage.getItem(TOKEN_KEY);
         this.setState({ isLoadingPosts: true, error: '' });
-        fetch(`${API_ROOT}/search?lat=${lat}&lon=${lon}&range=20000`, {
+        return fetch(`${API_ROOT}/search?lat=${lat}&lon=${lon}&range=20000`, {
             method: 'GET',
             headers: {
                 Authorization: `${AUTH_HEADER} ${token}`,
@@ -88,7 +88,7 @@ export class Home extends React.Component {
     }
 
     render() {
-        const operations = <Button type="primary">Create New Post</Button>;
+        const operations = <CreatePostButton loadNearbyPosts={this.loadNearbyPosts}/>;
         return (
             <Tabs tabBarExtraContent={operations} className="main-tabs">
                 <TabPane tab="Image Posts" key="1">
@@ -100,3 +100,4 @@ export class Home extends React.Component {
         );
     }
 }
+
