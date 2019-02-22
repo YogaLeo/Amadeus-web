@@ -29,7 +29,7 @@ export class Gallery extends Component {
         });
 
         return (
-            <div className = 'wrapperStyle'>
+            <div className = 'wrapper'>
                 <GridGallery
                     backdropClosesModal
                     images={images}
